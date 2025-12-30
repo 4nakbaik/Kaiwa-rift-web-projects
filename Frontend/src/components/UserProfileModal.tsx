@@ -110,7 +110,7 @@ const UserProfileModal = ({ isOpen, onClose }: Props) => {
                     
                     {/* Header */}
                     <div className="relative z-10 flex justify-between items-center p-6 border-b border-[#5c4033]/30">
-                        <h2 className="text-3xl font-calligraphy text-[#1a1a1a]">侍の記録 <span className="text-sm font-serif text-[#555] block">Samurai Records</span></h2>
+                        <h2 className="text-3xl font-calligraphy text-[#1a1a1a]">浪人の記録 <span className="text-sm font-serif text-[#555] block">Ronin Records</span></h2>
                         <button type="button" onClick={onClose} aria-label="Close modal" className="p-2 hover:bg-[#d7ccc8] rounded-full text-[#3e2723] transition-colors"><X size={24} /></button>
                     </div>
 
@@ -154,7 +154,7 @@ const UserProfileModal = ({ isOpen, onClose }: Props) => {
                                 {/* Form */}
                                 <div className="space-y-4">
                                     <div>
-                                        <label className="block text-xs font-bold text-[#8a1c1c] uppercase tracking-widest mb-1">Nama Panggilan (Ronin Name)</label>
+                                        <label className="block text-xs font-bold text-[#8a1c1c] uppercase tracking-widest mb-1">username</label>
                                         <input 
                                             value={username}
                                             onChange={(e) => setUsername(e.target.value)}
@@ -203,14 +203,14 @@ const UserProfileModal = ({ isOpen, onClose }: Props) => {
                                     {/* Grafik ML */}
                                     <InkGraph data={stats.graph_data} />
                                     <p className="text-[10px] text-[#888] mt-2 italic text-center">
-                                        Prediksi penurunan ingatan 7 hari ke depan (Algorithm: Ebbinghaus)
+                                        Prediksi penurunan ingatan 7 hari ke depan.
                                     </p>
                                 </div>
 
                                 <div className="pt-4 border-t border-[#d7ccc8]">
                                     <div className="flex justify-between items-center text-sm font-serif text-[#3e2723]">
                                         <span>Status Akun:</span>
-                                        <span className="font-bold bg-[#3e2723] text-[#e6e2d3] px-2 py-0.5 text-xs uppercase">Premium Ronin</span>
+                                        <span className="font-bold bg-[#3e2723] text-[#e6e2d3] px-2 py-0.5 text-xs uppercase">プレミアム武士</span>
                                     </div>
                                 </div>
                             </div>
