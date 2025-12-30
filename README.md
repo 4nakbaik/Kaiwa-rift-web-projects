@@ -49,35 +49,43 @@ Modul hafalan inti menggunakan sistem SRS.
 > *Tampilan kartu bagian depan (Kanji) dan belakang (Arti).*
 
 ### 4. Shiren (The Trial) - Examination
-Ujian negara untuk memvalidasi hafalan.
-* **Gatekeeping System:** Ujian terkunci jika pengguna belum menghafal minimal 25 kata.
-* **Dynamic Quota:** Soal diambil secara cerdas (80% dari kata yang sudah dikuasai).
-* **Incense Timer:** Penunjuk waktu visual berupa batang dupa/tinta yang terbakar habis, bukan angka digital.
+Ujian sekelas nasional untuk memvalidasi hafalan.
+* **Gatekeeping System:** Ujian terkunci jika user belum menghafal minimal 25 kotoba.
+* **Dynamic Quota:** Soal diambil secara statistik (80% dari kotoba yang sudah dikuasai, misal jika user berhasil hafal 50 kotoba dari anki/kartu maka 50-80%=40, jadi dari 40 kotoba itulah yang akan keluar di trial nanti ).
+* **Incense Timer:** Penunjuk waktu visual berupa batang dupa yang terbakar habis.
 
-> **[TEMPEL SCREENSHOT EXAM DI SINI]**
-> *Tampilan ujian dengan timer bar dan input gaya kuas.*
+> **<img width="1866" height="907" alt="exam" src="https://github.com/user-attachments/assets/c2009aff-f611-4f87-897d-c7fd10551792" />**
+
+> *Tampilan ujian dengan timer dan input-an dari user.*
 
 ### 5. Mibun no Makimono - User Identity
-Menu profil interaktif dalam bentuk modal gulungan besar.
-* **Avatar:** Custom avatar unik menggunakan *seed generator*.
-* **Ink Graph:** Grafik performa memori 7 hari ke depan yang digambar dengan gaya kuas.
-* **Kaimei:** Fitur penggantian nama pengguna (Nickname).
+Menu profil interaktif dalam bentuk gulungan kuno.
+* **Graph:** Grafik performa memori 7 hari ke depan.
+* **Kaimei:** Fitur penggantian username.
 
-> **[TEMPEL SCREENSHOT PROFILE MODAL DI SINI]**
-> *Modal profil user dengan grafik retensi memori.*
+> **<img width="525" height="588" alt="identity1" src="https://github.com/user-attachments/assets/4f6e7e27-dfdb-4e38-992b-f054c1a39c4e" />**
+> **<img width="525" height="588" alt="identity2" src="https://github.com/user-attachments/assets/bd4b90b6-3c24-49da-8079-e1a36b8df571" />**
+
+> *profil user dengan grafik retensi memori.*
 
 ---
 
-## 🧠 Machine Learning Engine
+## Machine Learning 
 
-Aplikasi ini tidak hanya mencatat skor, tetapi "berpikir".
+Web ini tidak hanya mencatat skor, tetapi "berpikir".
 * **Algoritma:** Menggunakan modifikasi *Ebbinghaus Forgetting Curve*.
 * **Fungsi:** Memprediksi kapan pengguna akan melupakan sebuah kata dan menyarankan waktu review yang tepat.
 * **Logarithmic Stability:** Perhitungan stabilitas memori jangka panjang yang akurat.
 
+> **<img width="1600" height="1071" alt="contoh_ebbinghaus algo" src="https://github.com/user-attachments/assets/75546b6a-9301-4601-a89b-c787edfd17e4" />**
+
+
+> *contoh hasil grafik visualisasi dari projek web ini.*
+
+
 ---
 
-## Cara Menjalankan di Local
+## Instruksi install
 
 Pastikan Docker Desktop sudah berjalan.
 
