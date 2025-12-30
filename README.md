@@ -24,6 +24,8 @@ Gerbang masuk bagi para Ronin Sejati. Desain formulir menyerupai gulungan kertas
 
 > **<img width="1875" height="899" alt="Login" src="https://github.com/user-attachments/assets/1a57f564-9ebc-449b-91e2-0baf150a5ab5" />**
 > **<img width="1864" height="887" alt="Register" src="https://github.com/user-attachments/assets/0b834112-0dac-4836-a0fa-2f651800dec2" />**
+> **<img width="422" height="787" alt="back" src="https://github.com/user-attachments/assets/ba80873b-061d-490c-ac4a-77034c0936ea" />**
+
 
 
 > *Formulir pendaftaran dengan gaya kaligrafi jepang.*
