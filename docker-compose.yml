@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  # DATABASE
+  db:
+    image: postgres:15-alpine
+    container_name: kotoba_db
+    restart: always
+    env_file: .env
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./data/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - kotoba_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # BACKEND
+  backend:
+    build: ./backend
+    container_name: Krift_backend
+    restart: on-failure
+    ports:
+      - "${PORT}:${PORT}"
+    env_file: .env
+    environment:
+      DB_HOST: db
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_PORT: 5432
+      JWT_SECRET: ${JWT_SECRET}
+      PORT: ${PORT}
+      GIN_MODE: ${GIN_MODE}
+      ML_SERVICE_URL: http://ml_service:5000 
+    volumes:
+      - ./seeds:/app/seeds 
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - kotoba_net
+
+  # FRONTEND
+  frontend:
+    build: ./frontend
+    container_name: Krift_frontend
+    restart: always
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend/src:/app/src
+      - /app/node_modules
+    env_file: .env
+    environment:
+      - VITE_API_URL=${VITE_API_URL}
+    stdin_open: true
+    tty: true
+    networks:
+      - kotoba_net
+
+  # ML 
+  ml_service:
+    build: ./ml_service
+    container_name: Krift_ml
+    restart: always
+    ports:
+      - "5000:5000"
+    networks:
+      - kotoba_net
+
+networks:
+  kotoba_net:
+    driver: bridge
+
+volumes:
+  postgres_data:

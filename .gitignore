@@ -1,0 +1,23 @@
+# Abaikan file environment
+.env
+.env.local
+*.env
+
+# Abaikan folder build/dependency
+backend/vendor/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Abaikan binary executable
+main
+*.exe
+*.test
+
+# Abaikan data docker local (jika ada mount lokal selain named volume)
+postgres_data/
+
+.env
+postgres_data/
+Backend/main
+Backend/vendor/
