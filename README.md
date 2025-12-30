@@ -40,8 +40,9 @@ Modul hafalan inti menggunakan sistem SRS.
 * **Hanko Buttons:** Tombol evaluasi(Lupa/Ragu/Ingat).
 
 > **<img width="1870" height="902" alt="flashcard-dboard" src="https://github.com/user-attachments/assets/f2c5fd1a-affb-4568-a66d-2bcf6c74641b" />**
-> **<img width="486" height="714" alt="front" src="https://github.com/user-attachments/assets/82849692-a3b9-46ee-8839-9e15734ecacc" />**
-> **<img width="422" height="787" alt="back" src="https://github.com/user-attachments/assets/ba80873b-061d-490c-ac4a-77034c0936ea" />**
+> **<img width="400" height="671" alt="front" src="https://github.com/user-attachments/assets/571dcafb-e8f7-4dcd-9f4f-fd9d213b51d4" />**
+> **<img width="400" height="671" alt="back" src="https://github.com/user-attachments/assets/178eba8a-e61c-440b-aad6-65a67200dd1c" />**
+
 
 
 > *Tampilan kartu bagian depan (Kanji) dan belakang (Arti).*
