@@ -9,20 +9,23 @@ Kaiwa Rift adalah platform pembelajaran Bahasa Jepang khususnya entry level(N5-N
 
 ## Tech Stack
 
-* **Frontend:** React (Vite), Tailwind CSS, Framer Motion (Animations).
-* **Backend:** Go (Gin Framework), GORM.
-* **Machine Learning:** Python (FastAPI), NumPy (Ebbinghaus Forgetting Curve Algorithm).
+* **Frontend:** React(Vite), Tailwind CSS, Framer Motion(Animations).
+* **Backend:** Go + Gin Framework, GORM.
+* **Machine Learning:** Python, NumPy(Ebbinghaus Algorithm).
 * **Database:** PostgreSQL.
-* **Infrastructure:** Docker & Docker Compose.
+* **Infrastructure:** Docker.
 
 ---
 
-## 📜 Fitur Utama & Antarmuka (The Scrolls)
+## Fitur 
 
 ### 1. Nyumon (The Gate) - Authentication
-Gerbang masuk bagi para Ronin. Desain formulir menyerupai gulungan kertas washi kuno dengan validasi yang aman menggunakan JWT.
+Gerbang masuk bagi para Ronin Sejati. Desain formulir menyerupai gulungan kertas washi kuno dengan validasi yang aman menggunakan JWT.
 
-> **[TEMPEL SCREENSHOT LOGIN/REGISTER DI SINI]**
+> **<img width="1875" height="899" alt="Login" src="https://github.com/user-attachments/assets/1a57f564-9ebc-449b-91e2-0baf150a5ab5" />**
+> **<img width="1864" height="887" alt="Register" src="https://github.com/user-attachments/assets/0b834112-0dac-4836-a0fa-2f651800dec2" />**
+
+
 > *Formulir pendaftaran dengan gaya kaligrafi dan tekstur kertas tua.*
 
 ### 2. The Dojo (Dashboard)
