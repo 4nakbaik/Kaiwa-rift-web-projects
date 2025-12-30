@@ -29,6 +29,9 @@ Gerbang masuk bagi para Ronin Sejati. Desain formulir menyerupai gulungan kertas
 
 ### 2. Dojo (Dashboard)
 Pusat latihan.
+**Ink Path Enso:** Visualisasi progres mastery bahasa jepang yang terisi secara otomatis.
+**Shouma-sensei:** Model ML yang memberikan nasihat belajar berdasarkan data retensi memori user.
+**Navigation:** Menu navigasi yang menunjukkan arah bertarung(belajar ye maksudnya).
 
 > **<img width="1858" height="903" alt="Dashboard" src="https://github.com/user-attachments/assets/041444c8-e063-4eb5-8a9a-eff9314379a2" />**
 
@@ -42,8 +45,6 @@ Modul hafalan inti menggunakan sistem SRS.
 > **<img width="1870" height="902" alt="flashcard-dboard" src="https://github.com/user-attachments/assets/f2c5fd1a-affb-4568-a66d-2bcf6c74641b" />**
 > **<img width="400" height="671" alt="front" src="https://github.com/user-attachments/assets/571dcafb-e8f7-4dcd-9f4f-fd9d213b51d4" />**
 > **<img width="400" height="671" alt="back" src="https://github.com/user-attachments/assets/178eba8a-e61c-440b-aad6-65a67200dd1c" />**
-
-
 
 > *Tampilan kartu bagian depan (Kanji) dan belakang (Arti).*
 
