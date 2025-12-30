@@ -8,14 +8,10 @@ interface SidebarProps {
 
 const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
     const location = useLocation();
-    
-    // Cek rute aktif
     const isActive = (path: string) => location.pathname.startsWith(path);
-
-    // Komponen Menu Item (Tinta Style)
     const ScrollMenuItem = ({ to, label, sub, active }: { to: string, label: string, sub: string, active: boolean }) => (
         <Link to={to} className="group block relative pl-6 pr-8 py-3 mb-2" onClick={isMobile ? onClose : undefined}>
-            {/* Indikator Kuas (Hanya muncul jika aktif) */}
+            {/* Indikator Kuas */}
             {active && (
                 <motion.div 
                     layoutId="brushStroke"
@@ -26,7 +22,6 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
 
             <div className="flex flex-col relative z-10 transition-transform duration-300 group-hover:translate-x-1">
                 <div className="flex items-baseline gap-3">
-                    {/* Garis Strip sebagai pengganti ikon */}
                     <span className={`text-lg font-bold ${active ? 'text-[#cd3f3e]' : 'text-[#8c8c8c] group-hover:text-[#555]'}`}>
                         —
                     </span>
@@ -37,35 +32,34 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
                     </span>
                 </div>
                 
-                {/* Subtext (Katakana/English kecil) */}
+                {/* Subtext (Katakana/English) */}
                 <span className={`text-[9px] uppercase tracking-[0.2em] ml-7 font-serif ${active ? 'text-[#8a1c1c]' : 'text-[#888] group-hover:text-[#666]'}`}>
                     {sub}
                 </span>
             </div>
 
-            {/* Hover Splash Effect (Sangat tipis) */}
+            {/* Hover Splash Effect */}
             <div className="absolute inset-0 bg-[#cd3f3e] opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500 rounded-r-lg"></div>
         </Link>
     );
 
     return (
-        // Container Utama: Kertas Washi Kuno
         <div className="h-full w-72 bg-[#e6e2d3] flex flex-col relative overflow-hidden shadow-2xl border-r-4 border-[#5c4033]">
             
-            {/* TEXTURE OVERLAY (Kertas Kotor/Berdebu) */}
+            {/* TEXTURE OVERLAY */}
             <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply" 
                  style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/natural-paper.png')" }}></div>
             <div className="absolute inset-0 pointer-events-none opacity-20 mix-blend-overlay" 
                  style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/dust.png')" }}></div>
 
-            {/* ORNAMEN KAYU ATAS (Roller Gulungan) */}
+            {/* ORNAMEN KAYU ATAS */}
             <div className="h-4 w-full bg-gradient-to-b from-[#3e2b22] to-[#5c4033] shadow-md z-20 relative"></div>
 
             {/* HEADER: JUDUL GULUNGAN */}
             <div className="pt-10 pb-6 px-8 relative z-10 text-center">
                 <div className="inline-block border-2 border-black p-3 mb-2 opacity-80">
                     <span className="font-calligraphy text-4xl text-black">目録</span> 
-                    {/* Mokuroku (Daftar Isi) */}
+                    {/* Mokuroku */}
                 </div>
                 <p className="text-[10px] text-[#555] tracking-[0.4em] uppercase font-serif mt-2 border-b border-[#aaa] pb-4">
                     KAIWA RIFT 
@@ -99,7 +93,6 @@ const Sidebar = ({ isMobile, onClose }: SidebarProps) => {
                 <p className="text-[8px] text-[#444] font-mono tracking-widest">© 2025 Kaiwa Rift Project. All Rights Reserved.</p>
             </div>
 
-            {/* ORNAMEN KAYU BAWAH (Roller Gulungan) */}
             <div className="h-6 w-full bg-gradient-to-t from-[#3e2b22] to-[#5c4033] shadow-inner z-20 relative"></div>
         </div>
     );

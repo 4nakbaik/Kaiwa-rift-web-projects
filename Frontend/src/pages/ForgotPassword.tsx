@@ -10,8 +10,6 @@ const ForgotPassword = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('loading');
-        
-        // Simulasi API Backend (Email dikirim)
         setTimeout(() => {
             setStatus('success');
         }, 2000);
@@ -19,7 +17,6 @@ const ForgotPassword = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#0f172a] relative overflow-hidden font-sans">
-            {/* Background Effects (Konsisten dengan Login) */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
                 <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-blue-600/20 rounded-full blur-[100px]"></div>
                 <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px]"></div>

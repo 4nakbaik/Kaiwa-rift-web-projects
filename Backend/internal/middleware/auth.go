@@ -12,9 +12,9 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-// Hashing Password agar tidak terbaca di DB
+// Hashing Password agar tidak terbaca di db
 func HashPassword(password string) (string, error) {
-	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14) // Cost 14 (Sangat aman)
+	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
 	return string(bytes), err
 }
 
@@ -45,7 +45,6 @@ func RequireAuth(c *gin.Context) {
 		return
 	}
 
-	// Token valid, lanjut
 	c.Next()
 }
 
@@ -53,7 +52,7 @@ func RequireAuth(c *gin.Context) {
 func GenerateToken(userID uint) (string, error) {
 	claims := jwt.MapClaims{
 		"sub": userID,
-		"exp": time.Now().Add(time.Hour * 24 * 7).Unix(), // Expire 7 hari
+		"exp": time.Now().Add(time.Hour * 24 * 7).Unix(), // Expire sekitar 7 harian
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	return token.SignedString([]byte(os.Getenv("JWT_SECRET")))

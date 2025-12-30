@@ -2,7 +2,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { LogOut, User, Settings } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import UserProfileModal from './UserProfileModal'; // Import Component
+import UserProfileModal from './UserProfileModal'; 
 
 interface TopbarProps {
     onToggleSidebar: () => void;
@@ -11,14 +11,14 @@ interface TopbarProps {
 
 const Topbar = ({ onToggleSidebar, isSidebarOpen }: TopbarProps) => {
     const navigate = useNavigate();
-    const [isProfileOpen, setIsProfileOpen] = useState(false); // State Modal
+    const [isProfileOpen, setIsProfileOpen] = useState(false); 
     
-    // Ambil data lokal
+    // Ambil data d lokal
     const username = localStorage.getItem('username') || '浪人';
     const avatarSeed = localStorage.getItem('avatar_seed') || username;
     const avatarUrl = `https://api.dicebear.com/7.x/notionists/svg?seed=${avatarSeed}&backgroundColor=e6e2d3`;
 
-    // Tanggal Format Jepang
+    // Tanggal format khas Jepang
     const date = new Date();
     const dateJP = `${date.getFullYear()}年 ${date.getMonth() + 1}月 ${date.getDate()}日`;
 

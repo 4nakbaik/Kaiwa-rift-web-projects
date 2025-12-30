@@ -15,13 +15,11 @@ import ExamKaiwa from './pages/ExamKaiwa';
 import Reference from './pages/Reference';
 
 // --- COMPONENT: AUTH GUARD ---
-// Mengecek apakah user punya token. Jika tidak, tendang ke Login.
 const ProtectedRoute = () => {
   const token = localStorage.getItem('token');
   if (!token) {
     return <Navigate to="/login" replace />;
   }
-  // Jika ada token, render Layout beserta halaman di dalamnya
   return (
     <Layout>
       <Outlet />
@@ -38,7 +36,7 @@ function App() {
         reverseOrder={false}
         toastOptions={{
           style: {
-            background: '#1e293b', // Slate-900
+            background: '#1e293b', 
             color: '#fff',
             border: '1px solid #334155',
             padding: '16px',
@@ -49,19 +47,19 @@ function App() {
           },
           success: {
             iconTheme: {
-              primary: '#4ade80', // Green-400
+              primary: '#4ade80', 
               secondary: '#1e293b',
             },
           },
           error: {
             iconTheme: {
-              primary: '#ef4444', // Red-500
+              primary: '#ef4444', 
               secondary: '#1e293b',
             },
           },
           loading: {
             iconTheme: {
-              primary: '#38bdf8', // Blue-400
+              primary: '#38bdf8', 
               secondary: '#1e293b',
             },
           },
@@ -69,16 +67,15 @@ function App() {
       />
 
       <Routes>
-        {/* --- PUBLIC ROUTES (Tanpa Layout Sidebar) --- */}
+        {/* --- PUBLIC ROUTES --- */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         
-        {/* Redirect root ke dashboard (nanti akan dicek oleh ProtectedRoute) */}
+        {/* Redirect root ke dashboard (nanti bakal dicek oleh ProtectedRoute) */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
-        {/* --- PROTECTED ROUTES (Wajib Login) --- */}
-        {/* Semua route di dalam sini otomatis dibungkus Layout & Cek Token */}
+        {/* --- PROTECTED ROUTES--- */}
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/flashcards" element={<Flashcards />} />

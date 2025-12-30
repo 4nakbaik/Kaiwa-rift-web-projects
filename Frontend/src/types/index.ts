@@ -5,10 +5,10 @@ export interface Flashcard {
     kana: string;
     romaji: string;
     meaning: string;
-    example_sentence?: string; // Tanda tanya artinya opsional (bisa ada bisa tidak)
+    example_sentence?: string; // Tanda tanya artinya opsional (bisa ada atau tidak nya)
 }
 
-// Tipe untuk Statistik User
+// Tipe untuk Stats User
 export interface UserStats {
     total_learned: number;
     ingat_count: number;
@@ -25,7 +25,7 @@ export interface KaiwaQuestion {
     type: 'dialogue';
     question: string;
     options: string[];
-    correctAnswer?: string; // Opsional karena kadang logic kita beda
+    correctAnswer?: string; 
 }
 
 // Tipe untuk Response API standar

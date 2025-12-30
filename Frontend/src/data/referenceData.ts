@@ -1,5 +1,3 @@
-// frontend/src/data/referenceData.ts
-
 export const kanaCharts = {
     // 1. SEION (Dasar)
     hiragana_seion: [

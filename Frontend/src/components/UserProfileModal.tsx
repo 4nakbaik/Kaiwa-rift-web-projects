@@ -9,7 +9,7 @@ interface Props {
     onClose: () => void;
 }
 
-// --- VISUAL: INK GRAPH (Grafik Tinta) ---
+// --- VISUAL: INK GRAPH  ---
 const InkGraph = ({ data }: { data: number[] }) => {
     if (!data || data.length === 0) return null;
     
@@ -55,7 +55,7 @@ const UserProfileModal = ({ isOpen, onClose }: Props) => {
     const { data: stats } = useQuery({
         queryKey: ['dashboardStats'],
         queryFn: async () => { const res = await api.get('/api/stats'); return res.data; },
-        enabled: isOpen, // Hanya fetch saat modal buka
+        enabled: isOpen, 
     });
 
     // Mutation Update Profile
@@ -72,7 +72,6 @@ const UserProfileModal = ({ isOpen, onClose }: Props) => {
             // Delay tutup
             setTimeout(() => {
                 setMsg(null);
-                // window.location.reload(); // Opsional: Reload untuk update UI global
             }, 1000);
         },
         onError: (err: any) => {
@@ -93,14 +92,13 @@ const UserProfileModal = ({ isOpen, onClose }: Props) => {
     return (
         <AnimatePresence>
             <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
-                {/* Backdrop Gelap */}
+
                 <motion.div 
                     initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                     onClick={onClose}
                     className="absolute inset-0 bg-black/80 backdrop-blur-sm"
                 />
 
-                {/* Modal Container (Scroll Style) */}
                 <motion.div 
                     initial={{ scale: 0.9, opacity: 0, y: 20 }} 
                     animate={{ scale: 1, opacity: 1, y: 0 }} 
@@ -138,7 +136,7 @@ const UserProfileModal = ({ isOpen, onClose }: Props) => {
                         {/* --- TAB 1: IDENTITY --- */}
                         {activeTab === 'identity' && (
                             <div className="space-y-6">
-                                {/* Avatar Section */}
+                                {/* Avatar */}
                                 <div className="flex flex-col items-center gap-4">
                                     <div className="w-24 h-24 rounded-full border-4 border-[#3e2b22] overflow-hidden shadow-lg bg-[#1a1a1a] relative group">
                                         <img 

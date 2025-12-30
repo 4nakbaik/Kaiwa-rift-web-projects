@@ -9,19 +9,18 @@ export default {
       fontFamily: {
         sans: ['"Noto Serif JP"', 'serif'],
         calligraphy: ['"Yuji Syuku"', 'serif'],
-        brush: ['"Shippori Mincho"', 'serif'], // Tambahan untuk variasi teks buku tua
+        brush: ['"Shippori Mincho"', 'serif'], 
       },
       colors: {
-        // Palet "Sumi-e" (Tinta & Kertas)
-        'sumi-900': '#0a0a0a', // Hitam Tinta Pekat
-        'sumi-800': '#1c1c1c', // Arang
+        'sumi-900': '#0a0a0a', 
+        'sumi-800': '#1c1c1c', 
         'sumi-700': '#2d2d2d',
-        'washi-100': '#e6e2d3', // Kertas Putih Tulang
-        'washi-200': '#c2b8a3', // Kertas Usang
-        'vermilion': '#cd3f3e', // Merah Stempel
-        'indigo-dye': '#2b3a42', // Biru Kain Kuno
-        'gold-dust': '#a89f80', // Emas Pudar
-        'ink-black': '#080808', // Alias untuk ink-black agar konsisten dengan Dashboard.tsx
+        'washi-100': '#e6e2d3', 
+        'washi-200': '#c2b8a3', 
+        'vermilion': '#cd3f3e', 
+        'indigo-dye': '#2b3a42', 
+        'gold-dust': '#a89f80', 
+        'ink-black': '#080808', 
         'ink-gray': '#1c1c1c',
         'paper-worn': '#e3dac9',
         'blood-rust': '#8a1c1c',

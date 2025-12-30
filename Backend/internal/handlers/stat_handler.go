@@ -17,13 +17,12 @@ type UserStats struct {
 }
 
 func GetUserStats(c *gin.Context) {
-	userID := getUserID(c) // Helper yang kita buat sebelumnya
+	userID := getUserID(c)
 
 	var stats UserStats
 
 	// 1. Hitung Log User (Group by Result)
-	// Kita hitung status TERAKHIR user untuk setiap kata
-	// (Query CTE ini memastikan kita hanya mengambil log terbaru per kata)
+	// Hitung status "TERAKHIR" user untuk setiap kata
 	query := `
 		WITH LatestLogs AS (
 			SELECT vocab_id, result,
@@ -42,7 +41,7 @@ func GetUserStats(c *gin.Context) {
 	database.DB.Raw(query, userID).Scan(&stats)
 
 	// 2. Hitung Mastery N5
-	// Asumsi: Total N5 standar ada sekitar 100 kata (atau ambil count real dari DB)
+	// Asumsi Total N5 standar ada sekitar 100 kata atau ambil count real dari db
 	var totalN5 int64
 	database.DB.Table("vocabularies").Where("difficulty_level = 1").Count(&totalN5)
 

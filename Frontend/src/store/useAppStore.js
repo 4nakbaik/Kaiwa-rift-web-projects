@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-// Store ini otomatis menyimpan data ke LocalStorage browser
 const useAppStore = create(
   persist(
     (set) => ({
@@ -10,16 +9,16 @@ const useAppStore = create(
       toggleMute: () => set((state) => ({ isMuted: !state.isMuted })),
       
       // --- USER PREFERENCES ---
-      themeMode: 'cyber', // 'cyber' or 'traditional'
+      themeMode: 'cyber', 
       dailyTarget: 10,
       setDailyTarget: (count) => set({ dailyTarget: count }),
 
-      // --- USER PROGRESS (Simple Cache) ---
+      // --- USER PROGRESS ---
       userLevel: 'N5',
       setUserLevel: (level) => set({ userLevel: level }),
     }),
     {
-      name: 'kotoba-app-storage', // Nama key di LocalStorage
+      name: 'kotoba-app-storage', // Nama key nya di Local
     }
   )
 );

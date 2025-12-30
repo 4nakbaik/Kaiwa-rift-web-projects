@@ -27,15 +27,15 @@ interface KanjiData {
 }
 
 // --- ASSETS CONFIG ---
-const TOTAL_COVERS = 20;
+const TOTAL_COVERS = 20; // set cover kartu depan(cover0-cover ke n)
 
-// --- COMPONENT: REALISTIC SENGOKU BACKGROUND ---
+// --- COMPONENT: BACKGROUND ---
 const SengokuBackground = () => (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#0a0806]">
         <div 
             className="absolute inset-0 bg-cover bg-center transition-all duration-1000"
             style={{ 
-                backgroundImage: "url('/images/training.jpg')", 
+                backgroundImage: "url('/images/training.jpg')", //Set bg
                 filter: "sepia(0.8) contrast(1.2) brightness(0.3) blur(4px)" 
             }}
         />
@@ -45,14 +45,14 @@ const SengokuBackground = () => (
     </div>
 );
 
-// --- COMPONENT: REALISTIC PAPER CARD (OFUDA V2) ---
+// --- COMPONENTS: PAPER CARD---
 const OfudaCard = ({ children, isBack = false }: { children: React.ReactNode, isBack?: boolean }) => {
     return (
         <div 
             className={`absolute w-full h-full backface-hidden flex flex-col overflow-hidden shadow-2xl transition-colors duration-500
             ${isBack 
-                ? 'bg-[#d8c8b0]' // Back: Kertas lebih gelap/usang
-                : 'bg-[#f4ebd9]' // Front: Kertas lebih cerah
+                ? 'bg-[#d8c8b0]' 
+                : 'bg-[#f4ebd9]' 
             }`}
             style={{
                 transform: isBack ? "rotateY(180deg)" : "rotateY(0deg)",
@@ -199,7 +199,6 @@ const FlashcardGame = ({ onBack }: { onBack: () => void }) => {
     const startSession = async () => {
         setLoading(true);
         try {
-            // FIX ENDPOINT DISINI: /api/flashcards
             const res = await api.get('/api/flashcards');
             if (Array.isArray(res.data.data)) {
                 const limit = parseInt(targetCount) || 10;

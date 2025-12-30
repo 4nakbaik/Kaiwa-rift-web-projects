@@ -1,4 +1,4 @@
--- Bersihkan tabel jika ada konflik
+-- Bersihkan tabel jika ada konflik (rawan)
 DROP TABLE IF EXISTS review_logs;
 DROP TABLE IF EXISTS vocabularies;
 DROP TABLE IF EXISTS users;
@@ -15,7 +15,7 @@ CREATE TABLE users (
     deleted_at TIMESTAMP
 );
 
--- Tabel Vocabularies (Master Data Kata)
+-- Tabel Vocabularies 
 CREATE TABLE vocabularies (
     id SERIAL PRIMARY KEY,
     kanji VARCHAR(50),
@@ -29,7 +29,7 @@ CREATE TABLE vocabularies (
     deleted_at TIMESTAMP
 );
 
--- Tabel Logs (Tracking Progress User)
+-- Tabel Logs 
 CREATE TABLE review_logs (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE, 

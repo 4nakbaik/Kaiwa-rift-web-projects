@@ -118,7 +118,7 @@ const Exam = () => {
                     });
                     setGameState('locked');
                 } else {
-                    // Handle error lain (misal koneksi)
+                    // Handle error lain (misalnye koneksi)
                     console.error("Exam Error:", err);
                 }
                 return null;
@@ -137,7 +137,7 @@ const Exam = () => {
                         handleSubmit(true);
                         return 0;
                     }
-                    return prev - 0.15; // Sedikit lebih lambat agar playable
+                    return prev - 0.15; 
                 });
             }, 100);
             return () => clearInterval(timer);
@@ -148,8 +148,6 @@ const Exam = () => {
     const handleSubmit = (isTimeout = false) => {
         if (questions.length === 0) return;
         const currentQ = questions[currentQIndex];
-        
-        // Cek Jawaban (Case Insensitive & Trim)
         const isCorrect = !isTimeout && input.toLowerCase().trim() === currentQ.answer.toLowerCase();
 
         if (isCorrect) {
@@ -160,7 +158,6 @@ const Exam = () => {
             setFeedback('wrong');
         }
 
-        // Delay ke soal berikutnya
         setTimeout(() => {
             setFeedback(null);
             setInput('');
@@ -171,7 +168,6 @@ const Exam = () => {
                 setTimeout(() => inputRef.current?.focus(), 100);
             } else {
                 setGameState('result');
-                // Refresh data dashboard agar progress update
                 queryClient.invalidateQueries({ queryKey: ['dashboardStats'] });
             }
         }, 2000);
@@ -253,7 +249,7 @@ const Exam = () => {
                         <button 
                             onClick={() => {
                                 setGameState('loading');
-                                refetch(); // Ambil soal baru
+                                refetch(); 
                             }}
                             className="flex-1 py-4 bg-[#1a1a1a] text-[#e6e2d3] font-bold hover:bg-[#333] uppercase tracking-widest text-xs border-2 border-transparent transition-colors"
                         >
@@ -285,14 +281,14 @@ const Exam = () => {
             {/* Game Container */}
             <div className="relative z-10 w-full max-w-3xl px-6">
                 
-                {/* 1. Timer Bar (Burning Incense Style) */}
+                {/* 1. Timer Bar */}
                 <div className="w-full h-3 bg-[#333] mb-12 rounded-full overflow-hidden border-2 border-[#1a1a1a] shadow-lg relative">
                     <motion.div 
                         className="h-full bg-gradient-to-r from-[#8a1c1c] via-[#cd3f3e] to-[#ff5252]"
                         style={{ width: `${timeLeft}%` }}
                         animate={{ opacity: timeLeft < 20 ? [1, 0.5, 1] : 1 }} 
                     />
-                    {/* Smoke Effect (Simple) */}
+                    {/* Smoke Effect */}
                     <motion.div 
                         className="absolute top-0 h-full w-2 bg-white blur-sm"
                         style={{ left: `${timeLeft}%` }}

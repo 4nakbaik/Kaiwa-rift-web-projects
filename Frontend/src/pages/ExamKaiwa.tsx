@@ -192,7 +192,6 @@ const DrillMode = ({ onBack, audio }: DrillModeProps) => {
     const [bgIndex, setBgIndex] = useState(0);
 
     useEffect(() => {
-        // Assertion as Question[] because imported JS data might not be typed
         setQuestionQueue(shuffleArray(kaiwaQuestions as unknown as Question[]).slice(0, 10));
     }, []);
 
@@ -215,7 +214,6 @@ const DrillMode = ({ onBack, audio }: DrillModeProps) => {
 
         setTimeout(() => {
             if (currentIdx < maxQuestions - 1) {
-                // Extension Logic: Jika soal ke-10 dan benar >= 8, tambah 5 soal
                 if (currentIdx === 9 && correctCount >= 8 && maxQuestions === 10) {
                     setMaxQuestions(15);
                     const newQuestions = shuffleArray(kaiwaQuestions as unknown as Question[]).slice(0, 5);
@@ -325,17 +323,17 @@ const DrillMode = ({ onBack, audio }: DrillModeProps) => {
                 </div>
             </div>
 
-            {/* BODY (Responsive Flex) */}
+            {/* BODY */}
             <div className="flex-1 flex flex-col md:flex-row p-4 md:p-8 gap-4 md:gap-8 relative z-10 overflow-hidden">
                 
-                {/* Chat Display (Top on Mobile, Left on Desktop) */}
+                {/* Chat Display */}
                 <div className="flex-1 overflow-y-auto pr-2 md:pr-4 space-y-4 md:space-y-8 scrollbar-hide [&::-webkit-scrollbar]:hidden flex flex-col justify-center h-[60%] md:h-auto">
                     {parts.map((p, i) => (
                         <ChatBubble key={`${currentIdx}-${i}`} text={p.text} isUser={p.isUser} />
                     ))}
                 </div>
 
-                {/* Options (Bottom on Mobile, Right on Desktop) */}
+                {/* Options */}
                 <div className="h-[40%] md:h-auto md:w-1/3 flex flex-col justify-center gap-2 md:gap-5 overflow-y-auto pb-4 [&::-webkit-scrollbar]:hidden">
                     {q.options.map((opt, i) => (
                         <motion.button 

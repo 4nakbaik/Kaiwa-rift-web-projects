@@ -1,0 +1,12 @@
+main
+main.exe
+*.exe
+*.dll
+*.so
+*.dylib
+vendor
+.DS_Store
+Thumbs.db
+.env
+.git
+.gitignore

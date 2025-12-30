@@ -5,7 +5,7 @@ import (
 	"kotoba-backend/internal/middleware"
 	"kotoba-backend/internal/models"
 	"net/http"
-	"strings" // Import ini penting untuk cek spasi
+	"strings"
 
 	"github.com/gin-gonic/gin"
 )
@@ -22,26 +22,21 @@ func Register(c *gin.Context) {
 		return
 	}
 
-	// --- VALIDASI TAMBAHAN ---
-	// 1. Cek kosong / spasi doang
 	if strings.TrimSpace(body.Username) == "" || strings.TrimSpace(body.Email) == "" || strings.TrimSpace(body.Password) == "" {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Username, Email, dan Password tidak boleh kosong!"})
 		return
 	}
 
-	// 2. Cek panjang password (Opsional, standar keamanan)
 	if len(body.Password) < 6 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Password minimal 6 karakter!"})
 		return
 	}
-	// -------------------------
 
 	hash, _ := middleware.HashPassword(body.Password)
 	user := models.User{Username: body.Username, Email: body.Email, Password: hash}
 
 	result := database.DB.Create(&user)
 	if result.Error != nil {
-		// Cek apakah error karena duplikat (username/email sudah dipakai)
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Username atau Email sudah terdaftar!"})
 		return
 	}
@@ -49,9 +44,7 @@ func Register(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "Registrasi Berhasil! Silakan Login."})
 }
 
-// ... Fungsi Login biarkan seperti sebelumnya ...
 func Login(c *gin.Context) {
-	// ... code login yang lama ...
 	var body struct {
 		Email    string
 		Password string
@@ -76,7 +69,6 @@ func Login(c *gin.Context) {
 	}
 
 	token, _ := middleware.GenerateToken(user.ID)
-	// Kita kirim balik username juga agar frontend bisa menyapa user
 	c.JSON(http.StatusOK, gin.H{
 		"token":    token,
 		"username": user.Username,

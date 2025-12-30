@@ -1,0 +1,12 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+venv
+.venv
+env
+.DS_Store
+Thumbs.db
+.env
+.git
+.gitignore

@@ -8,7 +8,7 @@ export default defineConfig({
     alias: { "@": path.resolve(__dirname, "./src") },
   },
   server: {
-    host: true, // WAJIB AGAR BISA DIAKSES HP
+    host: true, 
     port: 5173,
   }
 })

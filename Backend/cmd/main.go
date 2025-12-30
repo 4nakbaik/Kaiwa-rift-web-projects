@@ -23,24 +23,21 @@ var (
 	db        *gorm.DB
 	jwtSecret = []byte(os.Getenv("JWT_SECRET"))
 
-	// URL Service Python
 	mlServiceURL = "http://ml_service:5000/predict_retention"
 
-	// HTTP Client dengan Timeout
 	httpClient = &http.Client{
 		Timeout: 5 * time.Second,
 	}
 )
 
 // --- DATABASE MODELS ---
-
 type User struct {
 	ID        uint           `gorm:"primaryKey" json:"id"`
 	Username  string         `gorm:"unique;not null" json:"username"`
 	Email     string         `gorm:"unique;not null" json:"email"`
 	Password  string         `gorm:"not null" json:"-"`
 	Role      string         `gorm:"default:'user'" json:"role"`
-	Avatar    string         `json:"avatar" gorm:"default:'default'"` // Tambahan untuk profil
+	Avatar    string         `json:"avatar" gorm:"default:'default'"`
 	CreatedAt time.Time      `json:"created_at"`
 	UpdatedAt time.Time      `json:"updated_at"`
 	DeletedAt gorm.DeletedAt `gorm:"index" json:"-"`
@@ -71,8 +68,6 @@ type ReviewLog struct {
 
 func (ReviewLog) TableName() string { return "review_logs" }
 
-// --- DTOs ---
-
 type UserStatsDTO struct {
 	TotalLearned int `json:"total_learned"`
 	IngatCount   int `json:"ingat_count"`
@@ -88,7 +83,7 @@ type MLResponse struct {
 	GraphData       []float64 `json:"graph_data"`
 }
 
-// --- DATABASE INITIALIZATION ---
+// --- DATABASE INIT ---
 
 func initDB() {
 	dsn := fmt.Sprintf(
@@ -176,7 +171,7 @@ func getUserStats(userID uint) (UserStatsDTO, error) {
 		Result int
 	}
 
-	// Query: Ambil status TERAKHIR user
+	// Query Ambil status TERAKHIR user
 	err := db.Raw(`
 		SELECT result 
 		FROM (
@@ -268,7 +263,7 @@ func Login(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"token": tokenString, "username": user.Username})
 }
 
-// Endpoint Profil Baru (Update Nama/Avatar)
+// Endpoint Profil Baru (update profil)
 func UpdateProfile(c *gin.Context) {
 	userID, _ := c.Get("user_id")
 	var input struct {
@@ -375,7 +370,6 @@ func GetStats(c *gin.Context) {
 		defer resp.Body.Close()
 		json.NewDecoder(resp.Body).Decode(&mlData)
 	} else {
-		// Fallback
 		mlData = MLResponse{
 			RetentionRate: 100, Status: "OFFLINE", DecayRisk: "UNKNOWN", NextReviewHours: 0,
 			GraphData: []float64{0, 0, 0, 0, 0, 0, 0},
@@ -457,12 +451,9 @@ func main() {
 
 	r := gin.Default()
 	r.Use(CORSMiddleware())
-
-	// Public Routes
 	r.POST("/register", Register)
 	r.POST("/login", Login)
 
-	// API Group (Protected)
 	auth := r.Group("/api")
 	auth.Use(AuthMiddleware())
 	{
@@ -470,7 +461,7 @@ func main() {
 		auth.GET("/stats", GetStats)
 		auth.POST("/review", SubmitReview)
 		auth.GET("/exam-questions", GetExamQuestions)
-		auth.PUT("/profile", UpdateProfile) // Route baru untuk update profil
+		auth.PUT("/profile", UpdateProfile)
 	}
 
 	port := os.Getenv("PORT")

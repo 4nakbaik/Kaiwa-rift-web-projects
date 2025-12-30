@@ -8,7 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// SeedDatabase: Fungsi untuk mengisi data manual
+// SeedDatabase: Fungsi untuk mengisi data scr manual
 func SeedDatabase(c *gin.Context) {
 	// 1. Data Hardcoded
 	vocabList := []models.Vocabulary{
@@ -24,7 +24,7 @@ func SeedDatabase(c *gin.Context) {
 		{Kanji: "日本", Kana: "にほん", Romaji: "nihon", Meaning: "Jepang", ExampleSentence: "日本に行きたい", DifficultyLevel: 1},
 	}
 
-	// 2. Cek apakah sudah ada data?
+	// 2. Cek apakah udah ada data?
 	var count int64
 	database.DB.Model(&models.Vocabulary{}).Count(&count)
 	if count > 0 {

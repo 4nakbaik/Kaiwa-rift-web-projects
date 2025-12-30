@@ -10,7 +10,7 @@ const LoginBackground = () => (
         <div 
             className="absolute inset-0 bg-cover bg-center opacity-60"
             style={{ 
-                backgroundImage: "url('/images/bg-sengoku.jpg')", // Gunakan gambar background yang sama dengan Dashboard
+                backgroundImage: "url('/images/bg-sengoku.jpg')", // Set bg
                 filter: "grayscale(100%) contrast(1.2) brightness(0.4)" 
             }}
         />
