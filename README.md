@@ -26,24 +26,24 @@ Gerbang masuk bagi para Ronin Sejati. Desain formulir menyerupai gulungan kertas
 > **<img width="1864" height="887" alt="Register" src="https://github.com/user-attachments/assets/0b834112-0dac-4836-a0fa-2f651800dec2" />**
 
 
-> *Formulir pendaftaran dengan gaya kaligrafi dan tekstur kertas tua.*
+> *Formulir pendaftaran dengan gaya kaligrafi jepang.*
 
-### 2. The Dojo (Dashboard)
-Pusat komando latihan. Menampilkan statistik kemajuan dalam visualisasi tinta (*Sumi-e Style*).
-* **Ink Path Enso:** Visualisasi progres mastery N5 yang terisi seperti tinta.
-* **Shouma-sensei (The Oracle):** Modul ML yang memberikan nasihat belajar berdasarkan data retensi memori pengguna.
-* **Navigation Plaques:** Menu navigasi berbentuk papan kayu dojo.
+### 2. Dojo (Dashboard)
+Pusat latihan.
 
-> **[TEMPEL SCREENSHOT DASHBOARD DI SINI]**
+> **<img width="1858" height="903" alt="Dashboard" src="https://github.com/user-attachments/assets/041444c8-e063-4eb5-8a9a-eff9314379a2" />**
+
 > *Tampilan utama dengan grafik Enso dan prediksi AI.*
 
 ### 3. Anki (Memorization) - Flashcards
 Modul hafalan inti menggunakan sistem SRS.
-* **Ofuda Cards:** Kartu didesain menyerupai jimat kertas (*Ofuda*) dengan efek sobekan.
-* **Hanko Buttons:** Tombol evaluasi (Lupa/Ragu/Ingat) berbentuk stempel tinta.
-* **3D Flip:** Animasi balik kartu yang halus tanpa teks terbalik (mirrored).
+* **Ofuda Cards:** Kartu didesain menyerupai jimat kertas kepercayaan shinto jepang .
+* **Hanko Buttons:** Tombol evaluasi(Lupa/Ragu/Ingat).
 
-> **[TEMPEL SCREENSHOT FLASHCARD DI SINI]**
+> **<img width="1870" height="902" alt="flashcard-dboard" src="https://github.com/user-attachments/assets/f2c5fd1a-affb-4568-a66d-2bcf6c74641b" />**
+> **<img width="486" height="714" alt="front" src="https://github.com/user-attachments/assets/82849692-a3b9-46ee-8839-9e15734ecacc" />**
+
+
 > *Tampilan kartu bagian depan (Kanji) dan belakang (Arti).*
 
 ### 4. Shiren (The Trial) - Examination
@@ -75,13 +75,13 @@ Aplikasi ini tidak hanya mencatat skor, tetapi "berpikir".
 
 ---
 
-## 🚀 Cara Menjalankan (Local Development)
+## Cara Menjalankan di Local
 
 Pastikan Docker Desktop sudah berjalan.
 
 ```bash
 # 1. Clone repository
-git clone [https://github.com/username/kaiwa-rift.git](https://github.com/username/kaiwa-rift.git)
+git clone https://github.com/4nakbaik/Kaiwa-rift-web-projects.git
 
 # 2. Build & Run Container
 docker-compose up --build
