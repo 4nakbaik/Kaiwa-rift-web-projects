@@ -24,9 +24,6 @@ Gerbang masuk bagi para Ronin Sejati. Desain formulir menyerupai gulungan kertas
 
 > **<img width="1875" height="899" alt="Login" src="https://github.com/user-attachments/assets/1a57f564-9ebc-449b-91e2-0baf150a5ab5" />**
 > **<img width="1864" height="887" alt="Register" src="https://github.com/user-attachments/assets/0b834112-0dac-4836-a0fa-2f651800dec2" />**
-> **<img width="422" height="787" alt="back" src="https://github.com/user-attachments/assets/ba80873b-061d-490c-ac4a-77034c0936ea" />**
-
-
 
 > *Formulir pendaftaran dengan gaya kaligrafi jepang.*
 
@@ -44,6 +41,7 @@ Modul hafalan inti menggunakan sistem SRS.
 
 > **<img width="1870" height="902" alt="flashcard-dboard" src="https://github.com/user-attachments/assets/f2c5fd1a-affb-4568-a66d-2bcf6c74641b" />**
 > **<img width="486" height="714" alt="front" src="https://github.com/user-attachments/assets/82849692-a3b9-46ee-8839-9e15734ecacc" />**
+> **<img width="422" height="787" alt="back" src="https://github.com/user-attachments/assets/ba80873b-061d-490c-ac4a-77034c0936ea" />**
 
 
 > *Tampilan kartu bagian depan (Kanji) dan belakang (Arti).*
