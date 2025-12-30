@@ -25,13 +25,13 @@ Gerbang masuk bagi para Ronin Sejati. Desain formulir menyerupai gulungan kertas
 > **<img width="1875" height="899" alt="Login" src="https://github.com/user-attachments/assets/1a57f564-9ebc-449b-91e2-0baf150a5ab5" />**
 > **<img width="1864" height="887" alt="Register" src="https://github.com/user-attachments/assets/0b834112-0dac-4836-a0fa-2f651800dec2" />**
 
-> *Formulir pendaftaran dengan gaya kaligrafi jepang.*
+> *Formulir pendaftaran dengan gaya kaligrafi jepun.*
 
 ### 2. Dojo (Dashboard)
 Pusat latihan.
-**Ink Path Enso:** Visualisasi progres mastery bahasa jepang yang terisi secara otomatis.
-**Shouma-sensei:** Model ML yang memberikan nasihat belajar berdasarkan data retensi memori user.
-**Navigation:** Menu navigasi yang menunjukkan arah bertarung(belajar ye maksudnya).
+* **Ink Path:** Visualisasi progres mastery bahasa jepun yg terisi secara otomatis.
+* **Shouma-sensei:** Model ML yang memberikan nasihat belajar berdasarkan data retensi memori user.
+* **Navigation:** Menu navigasi yang menunjukkan arah bertarung(belajar ye maksudnya).
 
 > **<img width="1858" height="903" alt="Dashboard" src="https://github.com/user-attachments/assets/041444c8-e063-4eb5-8a9a-eff9314379a2" />**
 
@@ -73,13 +73,11 @@ Menu profil interaktif dalam bentuk gulungan kuno.
 ## Machine Learning 
 
 Web ini tidak hanya mencatat skor, tetapi "berpikir".
-* **Algoritma:** Menggunakan modifikasi *Ebbinghaus Forgetting Curve*.
-* **Fungsi:** Memprediksi kapan pengguna akan melupakan sebuah kata dan menyarankan waktu review yang tepat.
+* **Algoritma:** Menggunakan modifikasi dari *Ebbinghaus Forgetting Curve*.
+* **Fungsi:** Memprediksi kapan user akan melupakan sebuah kata dan menyarankan waktu untuk review yang tepat.
 * **Logarithmic Stability:** Perhitungan stabilitas memori jangka panjang yang akurat.
 
 > **<img width="934" height="579" alt="Screenshot 2025-12-31 014510" src="https://github.com/user-attachments/assets/ba516d47-79e8-4204-88a2-ba808d0483e8" />**
-
-
 
 > *contoh hasil grafik visualisasi dari projek web ini.*
 
