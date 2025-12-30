@@ -77,7 +77,8 @@ Web ini tidak hanya mencatat skor, tetapi "berpikir".
 * **Fungsi:** Memprediksi kapan pengguna akan melupakan sebuah kata dan menyarankan waktu review yang tepat.
 * **Logarithmic Stability:** Perhitungan stabilitas memori jangka panjang yang akurat.
 
-> **<img width="1600" height="1071" alt="contoh_ebbinghaus algo" src="https://github.com/user-attachments/assets/75546b6a-9301-4601-a89b-c787edfd17e4" />**
+> **<img width="934" height="579" alt="Screenshot 2025-12-31 014510" src="https://github.com/user-attachments/assets/ba516d47-79e8-4204-88a2-ba808d0483e8" />**
+
 
 
 > *contoh hasil grafik visualisasi dari projek web ini.*
