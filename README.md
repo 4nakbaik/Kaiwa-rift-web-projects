@@ -35,7 +35,7 @@ Pusat latihan.
 
 > **<img width="1858" height="903" alt="Dashboard" src="https://github.com/user-attachments/assets/041444c8-e063-4eb5-8a9a-eff9314379a2" />**
 
-> *Tampilan utama dengan grafik Enso dan prediksi AI.*
+> *Tampilan utama dengan style khas sengoku era dan prediksi AI.*
 
 ### 3. Anki (Memorization) - Flashcards
 Modul hafalan inti menggunakan sistem SRS.
