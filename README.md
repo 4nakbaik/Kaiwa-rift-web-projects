@@ -63,8 +63,8 @@ Menu profil interaktif dalam bentuk gulungan kuno.
 * **Graph:** Grafik performa memori 7 hari ke depan.
 * **Kaimei:** Fitur penggantian username.
 
-> **<img width="525" height="588" alt="identity1" src="https://github.com/user-attachments/assets/4f6e7e27-dfdb-4e38-992b-f054c1a39c4e" />**
-> **<img width="525" height="588" alt="identity2" src="https://github.com/user-attachments/assets/bd4b90b6-3c24-49da-8079-e1a36b8df571" />**
+> **<img width="540" height="550" alt="Screenshot 2025-12-31 020624" src="https://github.com/user-attachments/assets/141d9d1f-c411-446b-bb21-1e3402d0da75" />**
+> **<img width="540" height="550" alt="Screenshot 2025-12-31 020652" src="https://github.com/user-attachments/assets/c9e295f2-14f9-47d9-9f93-255e3e4a4d54" />**
 
 > *profil user dengan grafik retensi memori.*
 
