@@ -1,12 +1,13 @@
 #  KAIWA RIFT (会話リフト)
 
-**"The Ronin's Path to Japanese Mastery"**
+**"浪人の日本の達人への道"**
+*The Ronin's Path to Japanese Mastery*
 
-Kaiwa Rift adalah platform pembelajaran Bahasa Jepang interaktif yang menggabungkan metode ilmiah **Spaced Repetition System (SRS)** dengan estetika artistik **Era Sengoku**. Dibangun dengan arsitektur *Microservices* modern untuk performa dan skalabilitas tinggi.
+Kaiwa Rift adalah platform pembelajaran Bahasa Jepang khususnya entry level(N5-N4) yg interaktif dengan menggabungkan metode ilmiah **Spaced Repetition System (SRS)** dengan art yg terinspirasi dari **Era Sengoku**. Dibangun dengan arsitektur *Microservices* modern untuk performa dan skalabilitas yg tinggi.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Frontend:** React (Vite), Tailwind CSS, Framer Motion (Animations).
 * **Backend:** Go (Gin Framework), GORM.
