@@ -25,17 +25,17 @@ Gerbang masuk bagi para Ronin Sejati. Desain formulir menyerupai gulungan kertas
 > **<img width="1875" height="899" alt="Login" src="https://github.com/user-attachments/assets/1a57f564-9ebc-449b-91e2-0baf150a5ab5" />**
 > **<img width="1864" height="887" alt="Register" src="https://github.com/user-attachments/assets/0b834112-0dac-4836-a0fa-2f651800dec2" />**
 
-> *Formulir pendaftaran dengan gaya kaligrafi jepang.*
+> *Formulir pendaftaran dengan gaya kaligrafi jepun.*
 
 ### 2. Dojo (Dashboard)
 Pusat latihan.
-**Ink Path Enso:** Visualisasi progres mastery bahasa jepang yang terisi secara otomatis.
-**Shouma-sensei:** Model ML yang memberikan nasihat belajar berdasarkan data retensi memori user.
-**Navigation:** Menu navigasi yang menunjukkan arah bertarung(belajar ye maksudnya).
+* **Ink Path:** Visualisasi progres mastery bahasa jepun yg terisi secara otomatis.
+* **Shouma-sensei:** Model ML yang memberikan nasihat belajar berdasarkan data retensi memori user.
+* **Navigation:** Menu navigasi yang menunjukkan arah bertarung(belajar ye maksudnya).
 
 > **<img width="1858" height="903" alt="Dashboard" src="https://github.com/user-attachments/assets/041444c8-e063-4eb5-8a9a-eff9314379a2" />**
 
-> *Tampilan utama dengan grafik Enso dan prediksi AI.*
+> *Tampilan utama dengan style khas sengoku era dan prediksi AI.*
 
 ### 3. Anki (Memorization) - Flashcards
 Modul hafalan inti menggunakan sistem SRS.
@@ -49,35 +49,42 @@ Modul hafalan inti menggunakan sistem SRS.
 > *Tampilan kartu bagian depan (Kanji) dan belakang (Arti).*
 
 ### 4. Shiren (The Trial) - Examination
-Ujian negara untuk memvalidasi hafalan.
-* **Gatekeeping System:** Ujian terkunci jika pengguna belum menghafal minimal 25 kata.
-* **Dynamic Quota:** Soal diambil secara cerdas (80% dari kata yang sudah dikuasai).
-* **Incense Timer:** Penunjuk waktu visual berupa batang dupa/tinta yang terbakar habis, bukan angka digital.
+Ujian sekelas nasional untuk memvalidasi hafalan.
+* **Gatekeeping System:** Ujian terkunci jika user belum menghafal minimal 25 kotoba.
+* **Dynamic Quota:** Soal diambil secara statistik (80% dari kotoba yang sudah dikuasai, misal jika user berhasil hafal 50 kotoba dari anki/kartu maka 50-80%=40, jadi dari 40 kotoba itulah yang akan keluar di trial nanti ).
+* **Incense Timer:** Penunjuk waktu visual berupa batang dupa yang terbakar habis.
 
-> **[TEMPEL SCREENSHOT EXAM DI SINI]**
-> *Tampilan ujian dengan timer bar dan input gaya kuas.*
+> **<img width="1866" height="907" alt="exam" src="https://github.com/user-attachments/assets/c2009aff-f611-4f87-897d-c7fd10551792" />**
+
+> *Tampilan ujian dengan timer dan input-an dari user.*
 
 ### 5. Mibun no Makimono - User Identity
-Menu profil interaktif dalam bentuk modal gulungan besar.
-* **Avatar:** Custom avatar unik menggunakan *seed generator*.
-* **Ink Graph:** Grafik performa memori 7 hari ke depan yang digambar dengan gaya kuas.
-* **Kaimei:** Fitur penggantian nama pengguna (Nickname).
+Menu profil interaktif dalam bentuk gulungan kuno.
+* **Graph:** Grafik performa memori 7 hari ke depan.
+* **Kaimei:** Fitur penggantian username.
 
-> **[TEMPEL SCREENSHOT PROFILE MODAL DI SINI]**
-> *Modal profil user dengan grafik retensi memori.*
+> **<img width="540" height="550" alt="Screenshot 2025-12-31 020624" src="https://github.com/user-attachments/assets/141d9d1f-c411-446b-bb21-1e3402d0da75" />**
+> **<img width="540" height="550" alt="Screenshot 2025-12-31 020652" src="https://github.com/user-attachments/assets/c9e295f2-14f9-47d9-9f93-255e3e4a4d54" />**
+
+> *profil user dengan grafik retensi memori.*
 
 ---
 
-## 🧠 Machine Learning Engine
+## Machine Learning 
 
-Aplikasi ini tidak hanya mencatat skor, tetapi "berpikir".
-* **Algoritma:** Menggunakan modifikasi *Ebbinghaus Forgetting Curve*.
-* **Fungsi:** Memprediksi kapan pengguna akan melupakan sebuah kata dan menyarankan waktu review yang tepat.
+Web ini tidak hanya mencatat skor, tetapi "berpikir".
+* **Algoritma:** Menggunakan modifikasi dari *Ebbinghaus Forgetting Curve*.
+* **Fungsi:** Memprediksi kapan user akan melupakan sebuah kata dan menyarankan waktu untuk review yang tepat.
 * **Logarithmic Stability:** Perhitungan stabilitas memori jangka panjang yang akurat.
 
+> **<img width="934" height="579" alt="Screenshot 2025-12-31 014510" src="https://github.com/user-attachments/assets/ba516d47-79e8-4204-88a2-ba808d0483e8" />**
+
+> *contoh hasil grafik visualisasi dari projek web ini.*
+
+
 ---
 
-## Cara Menjalankan di Local
+## Instruksi install
 
 Pastikan Docker Desktop sudah berjalan.
 
