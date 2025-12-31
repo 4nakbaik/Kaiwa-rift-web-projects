@@ -10,7 +10,7 @@ const RegisterBackground = () => (
         <div 
             className="absolute inset-0 bg-cover bg-center opacity-50"
             style={{ 
-                backgroundImage: "url('/images/bg-sengoku.jpg')", 
+                backgroundImage: "url('/images/beginning.jpg')", 
                 filter: "grayscale(100%) contrast(1.1) brightness(0.3) blur(2px)" 
             }}
         />
@@ -90,7 +90,7 @@ const Register = () => {
                                         value={formData.username}
                                         onChange={handleChange}
                                         className="w-full bg-transparent text-[#1a1a1a] font-serif focus:outline-none placeholder:text-[#a1887f]"
-                                        placeholder="Pilih nama panggilan"
+                                        placeholder="愛称"
                                         required
                                     />
                                 </div>
@@ -106,7 +106,7 @@ const Register = () => {
                                         value={formData.email}
                                         onChange={handleChange}
                                         className="w-full bg-transparent text-[#1a1a1a] font-serif focus:outline-none placeholder:text-[#a1887f]"
-                                        placeholder="Alamat surel"
+                                        placeholder="電子メールアドレス"
                                         required
                                     />
                                 </div>
@@ -122,7 +122,7 @@ const Register = () => {
                                         value={formData.password}
                                         onChange={handleChange}
                                         className="w-full bg-transparent text-[#1a1a1a] font-serif focus:outline-none placeholder:text-[#a1887f]"
-                                        placeholder="Rahasia minimal 6 karakter"
+                                        placeholder="あなたの秘密は最低6文字です"
                                         required
                                     />
                                 </div>
@@ -133,7 +133,7 @@ const Register = () => {
                                 disabled={loading}
                                 className="w-full py-4 bg-[#1a1a1a] text-[#e6e2d3] font-bold text-xs uppercase tracking-[0.2em] hover:bg-[#333] transition-all shadow-lg flex items-center justify-center gap-2 border-2 border-[#1a1a1a] mt-8"
                             >
-                                {loading ? <Loader2 className="animate-spin" /> : "Cap Stempel (Daftar)"}
+                                {loading ? <Loader2 className="animate-spin" /> : "スタンプ (Daftar)"}
                             </button>
                         </form>
 

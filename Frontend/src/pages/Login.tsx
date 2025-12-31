@@ -10,7 +10,7 @@ const LoginBackground = () => (
         <div 
             className="absolute inset-0 bg-cover bg-center opacity-60"
             style={{ 
-                backgroundImage: "url('/images/bg-sengoku.jpg')", // Set bg
+                backgroundImage: "url('/images/beginning.jpg')", // Set bg
                 filter: "grayscale(100%) contrast(1.2) brightness(0.4)" 
             }}
         />
@@ -92,7 +92,7 @@ const Login = () => {
                             <input 
                                 type="text" 
                                 name="username"
-                                placeholder="Nama Ronin / Email"
+                                placeholder="お名前またはメールアドレス"
                                 value={formData.username}
                                 onChange={handleChange}
                                 className="w-full bg-transparent border-b-2 border-[#8d6e63] py-3 pl-8 text-[#1a1a1a] font-serif placeholder:text-[#8d6e63]/60 focus:outline-none focus:border-[#8a1c1c] transition-colors"
@@ -105,7 +105,7 @@ const Login = () => {
                             <input 
                                 type="password" 
                                 name="password"
-                                placeholder="Kata Sandi"
+                                placeholder="あなたの秘密を入力してください"
                                 value={formData.password}
                                 onChange={handleChange}
                                 className="w-full bg-transparent border-b-2 border-[#8d6e63] py-3 pl-8 text-[#1a1a1a] font-serif placeholder:text-[#8d6e63]/60 focus:outline-none focus:border-[#8a1c1c] transition-colors"
