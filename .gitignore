@@ -1,17 +1,24 @@
+# --- Envi Variables ---
 .env
 .env.local
 *.env
+
+# --- DB ---
+postgres_data/
+
+# --- BE ---
 backend/vendor/
+Backend/vendor/
+main
+Backend/main
+*.exe
+*.test
+
+# --- FE---
 frontend/node_modules/
 frontend/dist/
 frontend/.vite/
-.jpg
-.mp3
-main
-*.exe
-*.test
-postgres_data/
-.env
-postgres_data/
-Backend/main
-Backend/vendor/
+
+# --- Assets ---
+*.jpg
+*.mp3
