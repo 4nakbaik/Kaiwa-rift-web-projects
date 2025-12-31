@@ -22,10 +22,11 @@ Kaiwa Rift adalah platform pembelajaran Bahasa Jepang khususnya entry level(N5-N
 ### 1. Nyumon (The Gate) - Authentication
 Gerbang masuk bagi para Ronin Sejati. Desain formulir menyerupai gulungan kertas washi kuno dengan validasi yang aman menggunakan JWT.
 
-> **<img width="1875" height="899" alt="Login" src="https://github.com/user-attachments/assets/1a57f564-9ebc-449b-91e2-0baf150a5ab5" />**
-> **<img width="1864" height="887" alt="Register" src="https://github.com/user-attachments/assets/0b834112-0dac-4836-a0fa-2f651800dec2" />**
+> **<img width="1870" height="915" alt="Screenshot 2025-12-31 202508" src="https://github.com/user-attachments/assets/ae9ffca0-e994-40bc-a716-53e3e542a9a4" />**
+> **<img width="1870" height="915" alt="Screenshot 2025-12-31 202532" src="https://github.com/user-attachments/assets/64791a03-9ebf-4bb2-aff3-f49f041e764a" />**
 
-> *Formulir pendaftaran dengan gaya kaligrafi jepun.*
+
+> *Formulir pendaftaran dengan gaya emakimono jepun.*
 
 ### 2. Dojo (Dashboard)
 Pusat latihan.
@@ -86,7 +87,7 @@ Web ini bukan hanya mencatat skor saja, tetapi juga "berpikir".
 
 ## Instruksi install
 
-Pastikan Docker Desktop ada di PC dan pastikan sudah berjalan.
+Siapkan Docker Desktop dan pastikan sudah berjalan.
 
 ```bash
 # 1. Clone repository
