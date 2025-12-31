@@ -5,6 +5,8 @@ backend/vendor/
 frontend/node_modules/
 frontend/dist/
 frontend/.vite/
+.jpg
+.mp3
 main
 *.exe
 *.test
