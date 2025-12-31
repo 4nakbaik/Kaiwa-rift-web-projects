@@ -59,7 +59,7 @@ Ujian sekelas nasional untuk memvalidasi hafalan.
 > *Tampilan ujian dengan timer dan input-an dari user.*
 
 ### 5. Mibun no Makimono - User Identity
-Menu profil interaktif dalam bentuk gulungan kuno.
+Menu profil yg interaktif dalam bentuk gulungan kuno khas jepun sengoku era.
 * **Graph:** Grafik performa memori 7 hari ke depan.
 * **Kaimei:** Fitur penggantian username.
 
@@ -72,8 +72,8 @@ Menu profil interaktif dalam bentuk gulungan kuno.
 
 ## Machine Learning 
 
-Web ini tidak hanya mencatat skor, tetapi "berpikir".
-* **Algoritma:** Menggunakan modifikasi dari *Ebbinghaus Forgetting Curve*.
+Web ini bukan hanya mencatat skor saja, tetapi juga "berpikir".
+* **Algoritma:** Menggunakan serapan algorithm dari *Ebbinghaus Forgetting Curve*.
 * **Fungsi:** Memprediksi kapan user akan melupakan sebuah kata dan menyarankan waktu untuk review yang tepat.
 * **Logarithmic Stability:** Perhitungan stabilitas memori jangka panjang yang akurat.
 
@@ -86,7 +86,7 @@ Web ini tidak hanya mencatat skor, tetapi "berpikir".
 
 ## Instruksi install
 
-Pastikan Docker Desktop sudah berjalan.
+Pastikan Docker Desktop ada di PC dan pastikan sudah berjalan.
 
 ```bash
 # 1. Clone repository
