@@ -6,15 +6,14 @@ import os
 import requests
 from dotenv import load_dotenv
 
-# Load environment variables
+# Load env variables
 load_dotenv()
 
 app = FastAPI()
 
-# --- CONFIGURATION ---
+# --- CONFIG---
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 AI_MODEL = "xiaomi/mimo-v2-flash:free"
-# Alternatif jika yang atas tidak jalan: "google/gemini-pro" atau "mistralai/mistral-7b-instruct:free"
 
 # --- DATA MODELS ---
 
@@ -25,14 +24,14 @@ class UserStats(BaseModel):
     lupa_count: int
 
 class ChatMessage(BaseModel):
-    role: str # "user" atau "assistant"
+    role: str 
     content: str
 
 class ChatRequest(BaseModel):
     message: str
     history: List[ChatMessage] = []
 
-# --- PERSONA SYSTEM PROMPT (SHOUMA-SENSEI) ---
+# --- SYSTEM PROMPT ---
 SYSTEM_PROMPT = """
 Kamu adalah 'Shouma-sensei' (翔馬先生), seorang mentor samurai tua yang bijaksana, tegas, namun hangat di era Sengoku Jepang.
 Tugasmu adalah membimbing 'Ronin' (user) dalam mempelajari Bahasa Jepang.
@@ -56,7 +55,6 @@ Shouma: "'Neko' (猫) berarti Kucing. Makhluk lincah yang melangkah tanpa suara.
 
 @app.post("/predict_retention")
 def predict(stats: UserStats):
-    # 1. Handle Cold Start
     if stats.total_learned == 0:
         return {
             "retention_rate": 100,
@@ -66,7 +64,6 @@ def predict(stats: UserStats):
             "graph_data": [100] * 12 
         }
 
-    # 2. Ebbinghaus Algorithm Calculation
     base_s = 0.5 
     w_ingat = 1.8
     w_ragu = 1.0
@@ -80,19 +77,16 @@ def predict(stats: UserStats):
     stability = base_s * (1 + np.log(positive_reinforcement))
     forget_penalty = 1 + (stats.lupa_count * 0.2)
     stability = stability / forget_penalty
-
-    # 3. Current Retention
+    
     t_now = 1.0 
     retention_now = np.exp(-t_now / stability) * 100
 
-    # 4. Generate Graph Data (7 Days Projection)
     graph_time_points = np.linspace(0, 7, 12) 
     graph_data = []
     for t in graph_time_points:
         r = np.exp(-t / stability) * 100
         graph_data.append(round(r, 1))
 
-    # 5. Status Classification
     status = "STABLE"
     risk = "LOW"
 
@@ -123,42 +117,36 @@ def chat(req: ChatRequest):
     if not OPENROUTER_API_KEY:
         print("ERROR: API Key OpenRouter belum diset di .env")
         return {"reply": "Maaf Ronin, merpati pos (API Key) belum sampai. Mohon periksa konfigurasi .env mu."}
-
-    # 1. Siapkan Pesan (System + History + User)
+    
     messages = [{"role": "system", "content": SYSTEM_PROMPT}]
     
-    # Ambil 6 pesan terakhir dari history agar hemat konteks & tetap nyambung
     for msg in req.history[-6:]:
-        # Mapping role frontend 'assistant'/'sensei' ke API standard 'assistant'
         role = "assistant" if msg.role == "assistant" or msg.role == "sensei" else "user"
         messages.append({"role": role, "content": msg.content})
     
-    # Tambahkan pesan user saat ini
     messages.append({"role": "user", "content": req.message})
 
-    # 2. Panggil OpenRouter API
     try:
         response = requests.post(
             url="https://openrouter.ai/api/v1/chat/completions",
             headers={
                 "Authorization": f"Bearer {OPENROUTER_API_KEY}",
                 "Content-Type": "application/json",
-                "HTTP-Referer": "http://localhost:3000", # Identitas App (Optional)
+                "HTTP-Referer": "http://localhost:3000", # optional ini mah
                 "X-Title": "Kaiwa Rift",
             },
             json={
                 "model": AI_MODEL,
                 "messages": messages,
-                "temperature": 0.8, # Kreativitas (0.0 kaku - 1.0 liar)
-                "max_tokens": 200,  # Batasi panjang jawaban agar tidak boros
+                "temperature": 0.8, 
+                "max_tokens": 200,  # Batasi panjang jawaban agar tidak boros kasian ai nya
             },
-            timeout=20 # Timeout 20 detik
+            timeout=20 
         )
         
-        response.raise_for_status() # Cek error HTTP
+        response.raise_for_status() 
         result = response.json()
         
-        # Ambil teks jawaban
         if 'choices' in result and len(result['choices']) > 0:
             ai_reply = result['choices'][0]['message']['content']
             return {"reply": ai_reply}

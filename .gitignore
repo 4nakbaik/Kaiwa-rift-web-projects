@@ -1,49 +1,57 @@
-# --- DAPUR NEGARA ---
+# ENV
 .env
 .env.local
 .env.*.local
-*.pem
-*.key
+*.env
 
-# --- System Files ---
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
-*.log
+# ASSETS 
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.mp3
+*.wav
+*.m4a
+*.mp4
+frontend/public/images/*
+!frontend/public/images/.gitkeep
 
-# --- DB ---
-postgres_data/
-
-# --- FE ---
+# FRONTEND 
 frontend/node_modules/
 frontend/dist/
 frontend/build/
 frontend/.vite/
-frontend/npm-debug.log*
-frontend/yarn-debug.log*
-frontend/yarn-error.log*
+frontend/coverage/
+frontend/.pnp
+.pnp.js
 
-# --- BE ---
-backend/main
-backend/main.exe
-backend/*.exe
-backend/*.test
+# BACKEND 
 backend/vendor/
+backend/main
+Backend/main
+Backend/vendor/
+*.exe
+*.dll
+*.so
+*.test
 
-# --- ML ---
+# ML SERVICE 
 ml_service/__pycache__/
-ml_service/*.py[cod]
 ml_service/venv/
 ml_service/.venv/
 ml_service/env/
-ml_service/build/
-ml_service/dist/
-ml_service/*.spec
+*.pyc
 
-# --- Assets ---
-.jpg
-.mp3
-
-# --- Docker ---
+# DATABASE 
+postgres_data/
 docker-compose.override.yml
+
+# SYSTEM & LOGS
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+yarn-debug.log*
+.idea/
+.vscode/
