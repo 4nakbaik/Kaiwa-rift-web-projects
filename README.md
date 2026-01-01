@@ -111,3 +111,10 @@ git clone https://github.com/4nakbaik/Kaiwa-rift-web-projects.git
 
 # 2. Build & Run Container
 docker-compose up --build
+
+---
+
+## License
+Project ini dibuat untuk tujuan pembelajaran dan portofolio. © 2025 Kaiwa Rift Project.
+
+"Pedang yang tidak diasah akan berkarat, begitu pula pikiran yang tidak dilatih." — Shouma-sensei
