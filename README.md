@@ -1,5 +1,9 @@
 #  KAIWA RIFT (会話リフト)
 
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Status](https://img.shields.io/badge/status-Active_Development-green.svg)
+![Version](https://img.shields.io/badge/version-2.1.0-orange.svg)
+
 **"浪人の日本の達人への道"**
 *The Ronin's Path to Japanese Mastery*
 
@@ -9,9 +13,9 @@ Kaiwa Rift adalah platform pembelajaran Bahasa Jepang khususnya entry level(N5-N
 
 ## Tech Stack
 
-* **Frontend:** React(Vite), Tailwind CSS, Framer Motion(Animations).
-* **Backend:** Go + Gin Framework, GORM.
-* **Machine Learning:** Python, NumPy(Ebbinghaus Algorithm).
+* **Frontend:** React, Vite, Typescript, Tailwind CSS + Framer Motion.
+* **Backend:** Go + Gin, GORM, Auth(JWT), dan Business logic.
+* **Machine Learning:** Python, NumPy, Algoritma Ebbinghaus & LLM Orchestration. 
 * **Database:** PostgreSQL.
 * **Infrastructure:** Docker.
 
@@ -69,23 +73,35 @@ Menu profil yg interaktif dalam bentuk gulungan kuno khas jepun sengoku era.
 
 > *profil user dengan grafik retensi memori.*
 
+### 6. **Shouma-sensei AI (翔馬先生)**
+Mentor AI interaktif yang berperan sebagai samurai bijak. Pengguna dapat melakukan percakapan (*Kaiwa*) untuk bertanya tentang bahasa Jepang, meminta motivasi, atau berlatih kalimat dalam konteks budaya.
+Otak dari "Shouma-sensei" ditenagai oleh **MiMo by Xiaomi** yang diorkestrasi oleh Python Service.
+* **System Prompt Engineering:** AI dikondisikan secara ketat untuk tidak keluar dari karakter (breaking character). Ia merespons dengan gaya bahasa puitis, metafora pedang/alam, dan kebijaksanaan samurai.
+* **Context Awareness:** Membawa riwayat percakapan sebelumnya untuk menjaga konteks diskusi tetap relevan.
+
+
+> **<img width="1577" height="904" alt="Screenshot 2026-01-01 193149" src="https://github.com/user-attachments/assets/fa586a22-b451-43bd-ab65-66e3e0d20d55" />**
+
+
 ---
 
-## Machine Learning 
+## Machine Learning Overview
 
-Web ini bukan hanya mencatat skor saja, tetapi juga "berpikir".
-* **Algoritma:** Menggunakan serapan algorithm dari *Ebbinghaus Forgetting Curve*.
-* **Fungsi:** Memprediksi kapan user akan melupakan sebuah kata dan menyarankan waktu untuk review yang tepat.
-* **Logarithmic Stability:** Perhitungan stabilitas memori jangka panjang yang akurat.
+Sistem kecerdasan Kaiwa Rift dibangun di atas layanan mikro berbasis Python (**ML Service**), Kami tidak menggunakan penjadwalan acak. Sistem memprediksi kapan pengguna akan melupakan sebuah kata menggunakan modifikasi **Ebbinghaus Forgetting Curve**.
+
+* **Logarithmic Stability:** Stabilitas memori dihitung menggunakan skala logaritmik berdasarkan riwayat review, bukan linear. Ini merefleksikan *diminishing returns* dari pengulangan hafalan.
+* **Time Decay Simulation:** Menghitung probabilitas retensi (`R`) pada waktu `t` dengan rumus:
+    $$R = e^{-\frac{t}{S}}$$
+    *(Dimana `S` adalah stabilitas ingatan user terhadap kata tersebut)*.
+* **Risk Classification:** Mengelompokkan kata ke dalam status *Critical*, *Volatile*, atau *Stable* untuk menentukan prioritas review.
 
 > **<img width="934" height="579" alt="Screenshot 2025-12-31 014510" src="https://github.com/user-attachments/assets/ba516d47-79e8-4204-88a2-ba808d0483e8" />**
 
 > *contoh hasil grafik visualisasi dari projek web ini.*
 
-
 ---
 
-## Instruksi install
+## Installation
 
 Siapkan Docker Desktop dan pastikan sudah berjalan.
 
