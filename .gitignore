@@ -1,24 +1,49 @@
-# --- Envi Variables ---
+# --- DAPUR NEGARA ---
 .env
 .env.local
-*.env
+.env.*.local
+*.pem
+*.key
+
+# --- System Files ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
 
 # --- DB ---
 postgres_data/
 
-# --- BE ---
-backend/vendor/
-Backend/vendor/
-main
-Backend/main
-*.exe
-*.test
-
-# --- FE---
+# --- FE ---
 frontend/node_modules/
 frontend/dist/
+frontend/build/
 frontend/.vite/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# --- BE ---
+backend/main
+backend/main.exe
+backend/*.exe
+backend/*.test
+backend/vendor/
+
+# --- ML ---
+ml_service/__pycache__/
+ml_service/*.py[cod]
+ml_service/venv/
+ml_service/.venv/
+ml_service/env/
+ml_service/build/
+ml_service/dist/
+ml_service/*.spec
 
 # --- Assets ---
-*.jpg
-*.mp3
+.jpg
+.mp3
+
+# --- Docker ---
+docker-compose.override.yml

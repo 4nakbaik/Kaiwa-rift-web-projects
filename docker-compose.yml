@@ -77,6 +77,8 @@ services:
       - "5000:5000"
     networks:
       - kotoba_net
+    environment:
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
 
 networks:
   kotoba_net:

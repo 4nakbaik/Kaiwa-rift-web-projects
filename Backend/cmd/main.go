@@ -23,14 +23,18 @@ var (
 	db        *gorm.DB
 	jwtSecret = []byte(os.Getenv("JWT_SECRET"))
 
+	//URL Service Python
 	mlServiceURL = "http://ml_service:5000/predict_retention"
+	mlChatURL    = "http://ml_service:5000/chat" // Endpoint Chat Python
 
+	//HTTP Client dengan Timeout
 	httpClient = &http.Client{
-		Timeout: 5 * time.Second,
+		Timeout: 30 * time.Second,
 	}
 )
 
 // --- DATABASE MODELS ---
+
 type User struct {
 	ID        uint           `gorm:"primaryKey" json:"id"`
 	Username  string         `gorm:"unique;not null" json:"username"`
@@ -68,6 +72,8 @@ type ReviewLog struct {
 
 func (ReviewLog) TableName() string { return "review_logs" }
 
+// --- DTOs ---
+
 type UserStatsDTO struct {
 	TotalLearned int `json:"total_learned"`
 	IngatCount   int `json:"ingat_count"`
@@ -83,7 +89,22 @@ type MLResponse struct {
 	GraphData       []float64 `json:"graph_data"`
 }
 
-// --- DATABASE INIT ---
+// Chat DTOs
+type ChatMessage struct {
+	Role    string `json:"role"`
+	Content string `json:"content"`
+}
+
+type ChatRequest struct {
+	Message string        `json:"message"`
+	History []ChatMessage `json:"history"`
+}
+
+type ChatResponse struct {
+	Reply string `json:"reply"`
+}
+
+// --- DATABASE INITIALIZATION ---
 
 func initDB() {
 	dsn := fmt.Sprintf(
@@ -171,7 +192,7 @@ func getUserStats(userID uint) (UserStatsDTO, error) {
 		Result int
 	}
 
-	// Query Ambil status TERAKHIR user
+	// Query: Ambil status TERAKHIR user
 	err := db.Raw(`
 		SELECT result 
 		FROM (
@@ -263,7 +284,7 @@ func Login(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"token": tokenString, "username": user.Username})
 }
 
-// Endpoint Profil Baru (update profil)
+// Update Profile Handler
 func UpdateProfile(c *gin.Context) {
 	userID, _ := c.Get("user_id")
 	var input struct {
@@ -356,7 +377,7 @@ func GetStats(c *gin.Context) {
 		mastery = (float64(stats.IngatCount) / float64(totalVocabs)) * 100
 	}
 
-	// Call ML
+	//Call ML for Prediction
 	var mlData MLResponse
 	reqBody, _ := json.Marshal(map[string]int{
 		"total_learned": stats.TotalLearned,
@@ -370,6 +391,7 @@ func GetStats(c *gin.Context) {
 		defer resp.Body.Close()
 		json.NewDecoder(resp.Body).Decode(&mlData)
 	} else {
+		// Fallback
 		mlData = MLResponse{
 			RetentionRate: 100, Status: "OFFLINE", DecayRisk: "UNKNOWN", NextReviewHours: 0,
 			GraphData: []float64{0, 0, 0, 0, 0, 0, 0},
@@ -440,6 +462,35 @@ func GetExamQuestions(c *gin.Context) {
 	})
 }
 
+// Chat with Sensei Handler
+func ChatWithSensei(c *gin.Context) {
+	var input ChatRequest
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
+		return
+	}
+
+	//Forward to Python Service
+	jsonData, _ := json.Marshal(input)
+	resp, err := httpClient.Post(mlChatURL, "application/json", bytes.NewBuffer(jsonData))
+
+	if err != nil {
+		log.Printf("[ERROR] Chat Service Error: %v", err)
+		c.JSON(http.StatusOK, gin.H{"reply": "Maaf Ronin, saya sedang meditasi (Service Unreachable)."})
+		return
+	}
+	defer resp.Body.Close()
+
+	var mlResp ChatResponse
+	if err := json.NewDecoder(resp.Body).Decode(&mlResp); err != nil {
+		log.Printf("[ERROR] ML Response Decode Error: %v", err)
+		c.JSON(http.StatusOK, gin.H{"reply": "Suara angin mengganggu pendengaranku (Parse Error)."})
+		return
+	}
+
+	c.JSON(http.StatusOK, mlResp)
+}
+
 // --- MAIN ENTRYPOINT ---
 
 func main() {
@@ -451,9 +502,12 @@ func main() {
 
 	r := gin.Default()
 	r.Use(CORSMiddleware())
+
+	//Public Routes
 	r.POST("/register", Register)
 	r.POST("/login", Login)
 
+	//API Group
 	auth := r.Group("/api")
 	auth.Use(AuthMiddleware())
 	{
@@ -462,6 +516,7 @@ func main() {
 		auth.POST("/review", SubmitReview)
 		auth.GET("/exam-questions", GetExamQuestions)
 		auth.PUT("/profile", UpdateProfile)
+		auth.POST("/chat", ChatWithSensei) //Chat Endpoint
 	}
 
 	port := os.Getenv("PORT")

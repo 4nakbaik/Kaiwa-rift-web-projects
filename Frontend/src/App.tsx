@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast'; // Import Toaster
+import { Toaster } from 'react-hot-toast'; 
 import Layout from './components/Layout';
 
 // Auth Pages
@@ -11,8 +11,9 @@ import ForgotPassword from './pages/ForgotPassword';
 import Dashboard from './pages/Dashboard';
 import Flashcards from './pages/Flashcards';
 import Exam from './pages/Exam';
-import ExamKaiwa from './pages/ExamKaiwa';
+import ExamKaiwa from './pages/ExamKaiwa'; // Latihan Percakapan
 import Reference from './pages/Reference';
+import Sensei from './pages/Sensei'; // AI Chatbot (Rename dari Kaiwa.tsx)
 
 // --- COMPONENT: AUTH GUARD ---
 const ProtectedRoute = () => {
@@ -72,7 +73,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         
-        {/* Redirect root ke dashboard (nanti bakal dicek oleh ProtectedRoute) */}
+        {/* Redirect root ke dashboard */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
         {/* --- PROTECTED ROUTES--- */}
@@ -81,7 +82,12 @@ function App() {
           <Route path="/flashcards" element={<Flashcards />} />
           <Route path="/reference" element={<Reference />} />
           <Route path="/exam" element={<Exam />} />
-          <Route path="/kaiwa" element={<ExamKaiwa />} />
+          
+          {/* Menu "Taiwa" (Latihan Percakapan) */}
+          <Route path="/exam-kaiwa" element={<ExamKaiwa />} />
+          
+          {/* Menu "Shouma-sensei" (AI Chatbot) */}
+          <Route path="/kaiwa" element={<Sensei />} />
         </Route>
 
         {/* --- 404 CATCH ALL --- */}
