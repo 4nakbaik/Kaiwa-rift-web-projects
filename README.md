@@ -111,6 +111,7 @@ git clone https://github.com/4nakbaik/Kaiwa-rift-web-projects.git
 
 # 2. Build & Run Container
 docker-compose up --build
+```
 
 ---
 
