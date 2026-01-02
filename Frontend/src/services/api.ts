@@ -1,23 +1,39 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080';
+// Buat instance axios
 const api = axios.create({
-    baseURL: API_URL,
+    baseURL: 'http://localhost:8080', 
     headers: {
         'Content-Type': 'application/json',
     },
 });
 
-// Interceptor untuk menyisipkan Token otomatis
+// --- REQUEST INTERCEPTOR ---
 api.interceptors.request.use(
     (config) => {
-        const token = localStorage.getItem('token');
-        if (token && config.headers) {
-            config.headers.Authorization = `Bearer ${token}`;
+        const token = localStorage.getItem('token'); 
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`; 
         }
         return config;
     },
-    (error) => Promise.reject(error)
+    (error) => {
+        return Promise.reject(error);
+    }
+);
+
+// --- RESPONSE INTERCEPTOR ---
+api.interceptors.response.use(
+    (response) => response,
+    (error) => {
+        if (error.response && error.response.status === 401) {
+            console.error("Sesi habis, harap login kembali.");
+            localStorage.removeItem('token'); 
+            localStorage.removeItem('username');
+            window.location.href = '/login'; 
+        }
+        return Promise.reject(error);
+    }
 );
 
 export default api;
