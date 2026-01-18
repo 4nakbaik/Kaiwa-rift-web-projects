@@ -1,6 +1,5 @@
 #  KAIWA RIFT (会話リフト)
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Status](https://img.shields.io/badge/status-Active_Development-green.svg)
 ![Version](https://img.shields.io/badge/version-2.1.0-orange.svg)
 
