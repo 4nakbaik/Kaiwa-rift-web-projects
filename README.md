@@ -1,7 +1,6 @@
 #  KAIWA RIFT (会話リフト)
 
 ![Status](https://img.shields.io/badge/status-Active_Development-green.svg)
-![Version](https://img.shields.io/badge/version-2.1.0-orange.svg)
 
 **"浪人の日本の達人への道"**
 *The Ronin's Path to Japanese Mastery*
