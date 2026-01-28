@@ -73,7 +73,6 @@ Menu profil yg interaktif dalam bentuk gulungan kuno khas jepun sengoku era.
 
 ### 6. **Shouma-sensei AI (翔馬先生)**
 Mentor AI interaktif yang berperan sebagai samurai bijak. Pengguna dapat melakukan percakapan (*Kaiwa*) untuk bertanya tentang bahasa Jepang, meminta motivasi, atau berlatih kalimat dalam konteks budaya.
-Otak dari "Shouma-sensei" ditenagai oleh **MiMo by Xiaomi** yang diorkestrasi oleh Python Service.
 * **System Prompt Engineering:** AI dikondisikan secara ketat untuk tidak keluar dari karakter (breaking character). Ia merespons dengan gaya bahasa puitis, metafora pedang/alam, dan kebijaksanaan samurai.
 * **Context Awareness:** Membawa riwayat percakapan sebelumnya untuk menjaga konteks diskusi tetap relevan.
 
